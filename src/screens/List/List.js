@@ -1,13 +1,12 @@
 import { View, Text } from 'react-native';
-import 'react-native-gesture-handler';
 import React from 'react';
 
-const App = () => {
+const List = () => {
   return (
     <View>
-      <Text>Test</Text>
+      <Text>Movie List</Text>
     </View>
   );
 };
 
-export default App;
+export default List;
