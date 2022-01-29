@@ -71,7 +71,7 @@ const Profile = (props) => {
             <Text style={styles.text2}>SeeEvents</Text>
             <Text style={styles.text3}>Role: Stack Lead & React Native Developer</Text>
             <Text style={styles.text3}>Tech Stack: Linux, Vscode, React Native, Redux JS, Redux Saga, React Library, Javascript</Text>
-            <Text style={styles.TextStyle} onPress={ ()=> Linking.openURL('https://github.com/fhasans/HiParents-Project') } >Project Link</Text>
+            <Text style={styles.TextStyle} onPress={ ()=> Linking.openURL('https://github.com/fhasans/SeeEvent---Mini-Project-Glints-Academy') } >Project Link</Text>
         </View>
         
       </View>
