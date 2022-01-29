@@ -1,9 +1,14 @@
 import { View, Text, Image, StyleSheet, Linking } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { connect } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { List } from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Profile = (props) => {
+
+  const navigation = useNavigation();
 
   const [expanded, setExpanded] = React.useState(true);
 
@@ -45,7 +50,10 @@ const Profile = (props) => {
           </View>
           <TouchableOpacity 
             style={styles.btnLogout} 
-            onPress={() => props.navigation.navigate("Index")}
+            onPress={async ()=> {
+              props.delToken();
+              // props.navigation.navigate('Idx');
+            }}
           >
               <Text style={{color: "black", }}>
                 LOGOUT
@@ -73,7 +81,16 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+const redDispTokenRemoval = dispatch => ({
+  delToken: () => dispatch({type: 'REMOVE_TOKEN'}),
+});
+
+const redState = state => ({
+  token: state.auth.token,
+});
+
+
+export default connect(redState, redDispTokenRemoval) (Profile);
 
 const styles = StyleSheet.create({
     masterView: {
